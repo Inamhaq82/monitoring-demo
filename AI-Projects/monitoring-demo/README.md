@@ -1,3 +1,75 @@
+\# Monitoring Demo: Silent Latency Degradation
+
+
+
+\## Problem (Plain English)
+
+\- Problem name: Silent latency degradation
+
+\- What happened: Latency slowly increased over several hours while the service stayed “up”.
+
+\- Why monitoring failed: Alerts were based on fixed thresholds, so nothing triggered until it was already bad.
+
+\- Impact: Users experienced slowness and support tickets appeared before engineers noticed.
+
+\- What we want instead: Detect drift early and alert with context before users complain.
+
+
+
+\## Demo Inputs (Locked)
+
+\- Metric: p95\_latency\_ms
+
+\- Resolution: every 5 minutes
+
+\- Time span: 48 hours (Day 1 normal, Day 2 drifting worse)
+
+
+
+\## Demo Success Criteria
+
+\- Detect gradual latency drift BEFORE a fixed threshold would fire.
+
+\- Trigger ONE early warning alert (not noisy).
+
+\- Alert includes:
+
+&nbsp; - baseline latency
+
+&nbsp; - current latency
+
+&nbsp; - percent increase
+
+&nbsp; - duration of drift
+
+
+
+\## Example Alert Output (Target)
+
+Early Warning: Latency Drift Detected
+
+\- Metric: p95\_latency\_ms
+
+\- Drift: +25% above baseline
+
+\- Duration: 3 hours
+
+\- Why it matters: Drift often precedes user complaints
+
+\- Suggested checks: recent deploys, downstream dependency latency, traffic changes
+
+
+
+
+
+
+
+
+
+
+
+\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*8
+
 Problem name: Silent latency degradation
 
 
@@ -119,4 +191,18 @@ Suggested checks: recent deploys, downstream dependency latency, traffic changes
 
 
 --------------------------------------------------------------
+
+--Day 1 Checklist
+README.md has the filled template
+python day1_define_failure.py prints your scenario
+--Day 2 Checklist
+Generate a believable 48-hour latency dataset:
+Day 1: normal
+Day 2: gradual latency drift (silent degradation)
+--Day 3 Checklist
+Script loads CSV without errors
+Baseline average prints
+Current latency prints
+Percent change is > 20%
+--Day 4 Checklist
 
