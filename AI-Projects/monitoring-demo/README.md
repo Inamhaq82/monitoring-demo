@@ -193,16 +193,25 @@ Suggested checks: recent deploys, downstream dependency latency, traffic changes
 --------------------------------------------------------------
 
 --Day 1 Checklist
+
 README.md has the filled template
 python day1_define_failure.py prints your scenario
+
 --Day 2 Checklist
 Generate a believable 48-hour latency dataset:
 Day 1: normal
 Day 2: gradual latency drift (silent degradation)
 --Day 3 Checklist
+
 Script loads CSV without errors
 Baseline average prints
 Current latency prints
 Percent change is > 20%
---Day 4 Checklist
 
+--Day 4 Checklist
+python day4_detect_drift.py prints:
+baseline avg
+detection threshold + duration
+first trigger time
+trigger window showing sustained drift
+latest % above baseline
