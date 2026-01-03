@@ -215,3 +215,40 @@ detection threshold + duration
 first trigger time
 trigger window showing sustained drift
 latest % above baseline
+
+--Day 5 — Generate an Actionable Alert (60–90 min)
+Goal (what “done” looks like)
+By end of Day 5 you will have:
+A script that detects drift (from Day 4)
+AND prints a clean alert message with:
+what happened
+when it started
+severity (% above baseline)
+how long it has persisted
+what to check first (suggested actions)
+-------------
+4️⃣ Why this alert is $25k-worthy (important)
+Read this sentence carefully:
+“Drift started at 20:00, sustained for 60 minutes, 29% above baseline, before users complained.”
+That sentence:
+explains when
+explains why
+explains impact
+explains urgency
+explains what to do next
+Most alerts only say:  “Latency high.”
+Yours says:
+“Latency is behaving abnormally and here’s why you should care.”
+-----------------
+5️⃣ You have now completed the CORE demo
+At this point, you have:
+| Day                               | Status |
+| --------------------------------- | ------ |
+| Day 1 – Failure definition        | ✅      |
+| Day 2 – Realistic data            | ✅      |
+| Day 3 – Baseline logic            | ✅      |
+| Day 4 – Sustained drift detection | ✅      |
+| Day 5 – Actionable alert          | ✅      |
+------------------
+
+
