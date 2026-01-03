@@ -7,9 +7,9 @@ def send_email(subject: str, body: str) -> None:
     """
     Sends an email using Gmail SMTP.
     Requires environment variables:
-      SMTP_USER (your gmail address)
-      SMTP_PASS (gmail app password)
-      EMAIL_TO  (destination email address)
+      SMTP_USER (ihaq5565@gmail.com)
+      SMTP_PASS (khzs npjs ocjq brzn)
+      EMAIL_TO  (inam.haq@outlook.com)
     """
     smtp_user = os.getenv("SMTP_USER")
     smtp_pass = os.getenv("SMTP_PASS")

@@ -9,7 +9,7 @@ sys.stdout.reconfigure(encoding="utf-8")
 DATA_FILE = "latency_metrics.csv"
 METRIC_NAME = "p95_latency_ms"
 
-THRESHOLD_PCT = 0.20        # 20% above baseline
+THRESHOLD_PCT = 0.20  # 20% above baseline
 SUSTAIN_MINUTES = 60
 INTERVAL_MINUTES = 5
 
@@ -83,10 +83,12 @@ def main():
 
     timestamps, latencies = read_data(DATA_FILE)
 
-    baseline_avg = average(latencies[:len(latencies)//2])
+    baseline_avg = average(latencies[: len(latencies) // 2])
 
     print(f"Baseline learned from Day 1: {baseline_avg:.2f} ms")
-    print(f"Detection rule: >= {int(THRESHOLD_PCT*100)}% above baseline for {SUSTAIN_MINUTES} minutes\n")
+    print(
+        f"Detection rule: >= {int(THRESHOLD_PCT*100)}% above baseline for {SUSTAIN_MINUTES} minutes\n"
+    )
 
     trigger_index, sustain_points = find_sustained_drift(
         timestamps, latencies, baseline_avg
